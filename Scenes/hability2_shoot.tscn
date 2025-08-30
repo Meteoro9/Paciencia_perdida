@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg7ob5eu3qql7"]
+
+[ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://Paciencia_perdida/icon.svg" id="1_inyov"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inyov"]
+size = Vector2(34, 36)
+
+[node name="Hability2_shoot" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_inyov")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.258082, 0.258082, 0.258082, 1)
+scale = Vector2(0.289063, 0.289063)
+texture = ExtResource("1_inyov")
