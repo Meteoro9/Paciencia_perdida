@@ -1,12 +1,14 @@
 extends Area2D
 class_name Shoot_Behaviour
 
-var speed := 200.0
-var direction: Vector2
+var speed := 300.0
+var direction: Vector2 = Vector2.ZERO
+
 
 # En el spawner se configura la dirección
 func setup(dir: Vector2):
 	direction = dir
+	rotation = direction.angle()
 
 # Si shoca una distracción la elimina
 func _on_area_entered(body) -> void:

@@ -10,37 +10,38 @@ var player
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
+	is_shoot_able = true
 
-# Para detectar el input y bloquear el disparo después de disparar:
-func _input_event(viewport, event, shape_idx):
-	if is_shoot_able:
-		if event  is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
-			# Almacenamos posición del clic
-			shoot_direction = event.position
-			
-			# Activamos cooldown
-			timer.start()
-			is_shoot_able = false
-			
-			# Instanciamos disparo
-			var bullet_shoot = shoot.instantiate()
-			
-			# Posicionamos disparo en jugador
-			bullet_shoot.global_position = player.global_position
-			
-			# Configuramos dirección de disparo
-			bullet_shoot.setup(shoot_direction)
-			
-			# Añadimos disparo como hijo del spawner
-			add_child(bullet_shoot)
-			
-			# Corroboramos que funciona
-			print("Se disparó un bullet")
-			
+# Dispara en cualquier parte de la pantalla con clic derecho
+func _unhandled_input(event: InputEvent) -> void:
+	if not is_shoot_able:
+		return
+	
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_RIGHT \
+	and event.pressed:
+		# posición global del mouse
+		var mouse_global := get_global_mouse_position()
+		var player_pos = player.global_position
+		var dir = (mouse_global - player_pos).normalized()
+		
+		var bullet := shoot.instantiate() as Shoot_Behaviour
+		bullet.global_position = player_pos
+		bullet.setup(dir)
+
+		# Podés agregarla al árbol raíz de la escena actual
+		get_tree().current_scene.add_child(bullet)
+		# o como hijo del spawner si preferís:
+		# add_child(bullet)
+
+		# cooldown
+		is_shoot_able = false
+		timer.start()
+
+		print("Se disparó un bullet")
+
+
 
 # Si terminó el cooldown, permite disparar
 func _on_timer_timeout() -> void:
 	is_shoot_able = true
-
-func _process(_delta):
-	pass
