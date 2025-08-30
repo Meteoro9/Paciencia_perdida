@@ -8,10 +8,6 @@ var player
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
-	if player == null:
-		print("El spawner NO encontró al jugador")
-	else:
-		print("El spawner si econtró al jugador")
 	timer.start()
 
 func _on_timer_timeout() -> void:

@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bg7ob5eu3qql7"]
+[gd_scene load_steps=4 format=3 uid="uid://bg7ob5eu3qql7"]
 
+[ext_resource type="Script" uid="uid://iw8w3ntecbm2" path="res://Paciencia_perdida/Scripts/Testing/hability_2_shoot_behaviour.gd" id="1_58kjn"]
 [ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://Paciencia_perdida/icon.svg" id="1_inyov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_inyov"]
 size = Vector2(34, 36)
 
 [node name="Hability2_shoot" type="Area2D"]
+script = ExtResource("1_58kjn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_inyov")
@@ -14,3 +16,10 @@ shape = SubResource("RectangleShape2D_inyov")
 modulate = Color(0.258082, 0.258082, 0.258082, 1)
 scale = Vector2(0.289063, 0.289063)
 texture = ExtResource("1_inyov")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

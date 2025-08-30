@@ -6,10 +6,6 @@ var player
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
-	if player != null:
-		print("Distracción encontró el jugador")
-	else:
-		print("Distracción NO encontró el jugador")
 
 
 func _on_area_entered(body):
