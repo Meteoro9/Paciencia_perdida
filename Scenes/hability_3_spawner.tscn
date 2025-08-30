@@ -1,0 +1,204 @@
+[gd_scene load_steps=12 format=3 uid="uid://b1oo88e0cv656"]
+
+[ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://Paciencia_perdida/icon.svg" id="1_jcbgk"]
+[ext_resource type="Script" uid="uid://cwk1446vfpvdv" path="res://Paciencia_perdida/Scripts/Testing/hability_3_spawner.gd" id="1_ltbty"]
+[ext_resource type="Script" uid="uid://cmkva15icdhik" path="res://Paciencia_perdida/Scripts/Testing/bomb_active.gd" id="3_tialt"]
+
+[sub_resource type="Animation" id="Animation_wmt8v"]
+resource_name = "shoot_used"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.499517),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.823287, 0.470364, 0.247864, 1), Color(0.207843, 0.686275, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jbqp0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.209591, 0.687526, 5.77569e-07, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eq7pu"]
+resource_name = "shoot_recharged"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.207843, 0.686275, 0, 0), Color(0.823529, 0.470588, 0.247059, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eq7pu"]
+_data = {
+&"RESET": SubResource("Animation_jbqp0"),
+&"shoot_recharged": SubResource("Animation_eq7pu"),
+&"shoot_used": SubResource("Animation_wmt8v")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ltbty"]
+radius = 81.0247
+
+[sub_resource type="Animation" id="Animation_tialt"]
+resource_name = "explote"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.231759, 0.366667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.455, 0.455), Vector2(1.28, 1.28), Vector2(1.005, 1.005)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.866667, 0.486275, 0.247059, 0), Color(0.866667, 0.486275, 0.247059, 1), Color(0.866667, 0.486275, 0.247059, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0596745, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_bd20y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.455, 0.455)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.866667, 0.486275, 0.247059, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ib5cd"]
+_data = {
+&"RESET": SubResource("Animation_bd20y"),
+&"explote": SubResource("Animation_tialt")
+}
+
+[node name="Hability_3_Spawner" type="Node2D" node_paths=PackedStringArray("timer", "animation_player", "bomb_animation")]
+position = Vector2(610, 327)
+scale = Vector2(2.25886, 2.25886)
+script = ExtResource("1_ltbty")
+timer = NodePath("Timer")
+animation_player = NodePath("CanvasLayer/TextureRect/AnimationPlayer")
+bomb_animation = NodePath("Bomb/Bomb_animation/AnimationPlayer")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(0.209591, 0.687526, 5.77569e-07, 1)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 227.0
+offset_top = -125.0
+offset_right = 458.0
+offset_bottom = 106.0
+grow_vertical = 0
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("1_jcbgk")
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TextureRect"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_eq7pu")
+}
+
+[node name="Bomb" type="Area2D" parent="." node_paths=PackedStringArray("bomb_input", "animation_player", "bomb_collision")]
+position = Vector2(-12.8571, 0)
+script = ExtResource("3_tialt")
+bomb_input = NodePath("..")
+animation_player = NodePath("Bomb_animation/AnimationPlayer")
+bomb_collision = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bomb"]
+shape = SubResource("CircleShape2D_ltbty")
+disabled = true
+
+[node name="Bomb_animation" type="Sprite2D" parent="Bomb"]
+modulate = Color(0.866667, 0.486275, 0.247059, 1)
+scale = Vector2(0.455, 0.455)
+texture = ExtResource("1_jcbgk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bomb/Bomb_animation"]
+libraries = {
+&"": SubResource("AnimationLibrary_ib5cd")
+}
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Bomb" to="Bomb" method="_on_area_entered"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ceqjb1d5h81qk"]
+[gd_scene load_steps=8 format=3 uid="uid://ceqjb1d5h81qk"]
 
 [ext_resource type="PackedScene" uid="uid://4m7kifvbmelu" path="res://Paciencia_perdida/Scenes/player.tscn" id="1_0xl08"]
 [ext_resource type="PackedScene" uid="uid://begt0go5v2j0y" path="res://Paciencia_perdida/Scenes/health_bar.tscn" id="2_7k53l"]
 [ext_resource type="PackedScene" uid="uid://d2tk10cm6vts2" path="res://Paciencia_perdida/Scenes/distraction_spawner.tscn" id="3_md62p"]
 [ext_resource type="PackedScene" uid="uid://cf5mjs0ilbpbw" path="res://Paciencia_perdida/Scenes/hability_2_spawner.tscn" id="4_0xl08"]
+[ext_resource type="PackedScene" uid="uid://b1oo88e0cv656" path="res://Paciencia_perdida/Scenes/hability_3_spawner.tscn" id="5_7k53l"]
 [ext_resource type="Script" uid="uid://bp0c72ytcbd6x" path="res://Paciencia_perdida/Scripts/Testing/level_area.gd" id="5_b356e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8xifg"]
@@ -20,6 +21,8 @@ player_node = NodePath("../Player")
 [node name="Distraction_spawner" parent="." instance=ExtResource("3_md62p")]
 
 [node name="Hability_2_spawner" parent="." instance=ExtResource("4_0xl08")]
+
+[node name="Hability_3_Spawner" parent="." instance=ExtResource("5_7k53l")]
 
 [node name="Level_Area" type="Area2D" parent="."]
 script = ExtResource("5_b356e")
