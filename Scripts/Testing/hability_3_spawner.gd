@@ -20,12 +20,14 @@ func _process(_delta) -> void:
 		if Input.is_action_just_pressed("bomb_action"):
 			# Se activa la variable pública para Bomb_active
 			is_bomb_exploding = true
+			is_bomb_able = false # para que no sea infinita
+			# Al terminar la animación, inicia cooldown
 			await bomb_animation.current_animation
-			is_bomb_able = false
 			timer.start()
+			animation_player.play("shoot_used")
 
 
 func _on_timer_timeout() -> void:
 	is_bomb_able = true
-	
+	animation_player.play("shoot_recharged")
 	pass # Replace with function body.
