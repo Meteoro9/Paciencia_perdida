@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://ceqjb1d5h81qk"]
+
+[ext_resource type="PackedScene" uid="uid://4m7kifvbmelu" path="res://Paciencia_perdida/Scenes/player.tscn" id="1_d0v3l"]
+[ext_resource type="PackedScene" uid="uid://begt0go5v2j0y" path="res://Paciencia_perdida/Scenes/health_bar.tscn" id="2_7j0p6"]
+[ext_resource type="PackedScene" uid="uid://d2tk10cm6vts2" path="res://Paciencia_perdida/Scenes/distraction_spawner.tscn" id="3_n0yo7"]
+[ext_resource type="Script" uid="uid://bp0c72ytcbd6x" path="res://Paciencia_perdida/Scripts/Testing/level_area.gd" id="4_tgxga"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8xifg"]
+radius = 11.1763
+
+[node name="Nivel_test" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_d0v3l")]
+position = Vector2(563, 342)
+
+[node name="Health_bar" parent="." instance=ExtResource("2_7j0p6")]
+player_node = NodePath("../Player")
+
+[node name="Distraction_spawner" parent="." instance=ExtResource("3_n0yo7")]
+
+[node name="Level_Area" type="Area2D" parent="."]
+script = ExtResource("4_tgxga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level_Area"]
+position = Vector2(561, 329)
+scale = Vector2(38.12, 38.12)
+shape = SubResource("CircleShape2D_8xifg")
+
+[connection signal="area_exited" from="Level_Area" to="Level_Area" method="_on_area_exited"]
