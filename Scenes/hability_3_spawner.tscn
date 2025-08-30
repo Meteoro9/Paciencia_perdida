@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1oo88e0cv656"]
+[gd_scene load_steps=13 format=3 uid="uid://b1oo88e0cv656"]
 
 [ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://Paciencia_perdida/icon.svg" id="1_jcbgk"]
 [ext_resource type="Script" uid="uid://cwk1446vfpvdv" path="res://Paciencia_perdida/Scripts/Testing/hability_3_spawner.gd" id="1_ltbty"]
@@ -140,10 +140,16 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_ib5cd"]
+resource_name = "idle_bomb"
+length = 2.0
+loop_mode = 1
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ib5cd"]
 _data = {
 &"RESET": SubResource("Animation_bd20y"),
-&"explote": SubResource("Animation_tialt")
+&"explote": SubResource("Animation_tialt"),
+&"idle_bomb": SubResource("Animation_ib5cd")
 }
 
 [node name="Hability_3_Spawner" type="Node2D" node_paths=PackedStringArray("timer", "animation_player", "bomb_animation")]
@@ -179,12 +185,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_eq7pu")
 }
 
-[node name="Bomb" type="Area2D" parent="." node_paths=PackedStringArray("bomb_input", "animation_player", "bomb_collision")]
+[node name="Bomb" type="Area2D" parent="." node_paths=PackedStringArray("bomb_input", "animation_player", "bomb_collision", "sprite")]
 position = Vector2(-12.8571, 0)
 script = ExtResource("3_tialt")
 bomb_input = NodePath("..")
 animation_player = NodePath("Bomb_animation/AnimationPlayer")
 bomb_collision = NodePath("CollisionShape2D")
+sprite = NodePath("Bomb_animation")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bomb"]
 shape = SubResource("CircleShape2D_ltbty")

@@ -9,9 +9,11 @@ var player
 @export var animation_player: AnimationPlayer
 @export var bomb_animation: AnimationPlayer
 
+
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 	is_bomb_able = true
+	bomb_animation.play("idle_bomb")
 
 
 func _process(_delta) -> void:
@@ -22,10 +24,10 @@ func _process(_delta) -> void:
 			is_bomb_exploding = true
 			is_bomb_able = false # para que no sea infinita
 			# Al terminar la animación, inicia cooldown
-			await bomb_animation.current_animation
+			#await bomb_animation.current_animation
 			timer.start()
 			animation_player.play("shoot_used")
-
+		
 
 func _on_timer_timeout() -> void:
 	is_bomb_able = true
