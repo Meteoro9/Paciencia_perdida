@@ -1,7 +1,7 @@
 extends Area2D
 class_name Shoot_Behaviour
 
-var speed := 300.0
+var speed := 500.0
 var direction: Vector2 = Vector2.ZERO
 
 

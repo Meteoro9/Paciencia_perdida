@@ -1,15 +1,93 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf5mjs0ilbpbw"]
+[gd_scene load_steps=8 format=3 uid="uid://cf5mjs0ilbpbw"]
 
 [ext_resource type="Script" uid="uid://r05788ltb5qj" path="res://Paciencia_perdida/Scripts/Testing/hability_2_spawner.gd" id="1_oulol"]
 [ext_resource type="PackedScene" uid="uid://bg7ob5eu3qql7" path="res://Paciencia_perdida/Scenes/hability2_shoot.tscn" id="2_ic434"]
+[ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://Paciencia_perdida/icon.svg" id="3_wmt8v"]
 
-[node name="Hability_2_spawner" type="Node2D" node_paths=PackedStringArray("timer") groups=["Hability2_Spawner"]]
+[sub_resource type="Animation" id="Animation_wmt8v"]
+resource_name = "shoot_used"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.499517),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.209591, 0.687526, 5.77569e-07, 1), Color(0.207843, 0.686275, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jbqp0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.209591, 0.687526, 5.77569e-07, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eq7pu"]
+resource_name = "shoot_recharged"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.207843, 0.686275, 0, 0), Color(0.207843, 0.686275, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eq7pu"]
+_data = {
+&"RESET": SubResource("Animation_jbqp0"),
+&"shoot_recharged": SubResource("Animation_eq7pu"),
+&"shoot_used": SubResource("Animation_wmt8v")
+}
+
+[node name="Hability_2_spawner" type="Node2D" node_paths=PackedStringArray("timer", "animation_player") groups=["Hability2_Spawner"]]
 script = ExtResource("1_oulol")
 timer = NodePath("Timer")
 shoot = ExtResource("2_ic434")
+animation_player = NodePath("CanvasLayer/TextureRect/AnimationPlayer")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(0.209591, 0.687526, 5.77569e-07, 1)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 34.0
+offset_top = -125.0
+offset_right = 265.0
+offset_bottom = 106.0
+grow_vertical = 0
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("3_wmt8v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TextureRect"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_eq7pu")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
