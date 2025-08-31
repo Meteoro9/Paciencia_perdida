@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4birv6omkemt"]
+
+[ext_resource type="AudioStream" uid="uid://cfm83lcim1rqu" path="res://Assets/Testing_assets/AltElecPack_7.wav" id="1_q31jt"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_q31jt")
+autoplay = true

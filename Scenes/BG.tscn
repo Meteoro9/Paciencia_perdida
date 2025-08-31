@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://l5dfv50sfyd4"]
+
+[ext_resource type="AudioStream" uid="uid://cfm83lcim1rqu" path="res://Assets/Testing_assets/AltElecPack_7.wav" id="1_r2vh8"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_r2vh8")
+autoplay = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="AudioStreamPlayer"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="AudioStreamPlayer/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="AudioStreamPlayer/ParallaxBackground/ParallaxLayer"]
