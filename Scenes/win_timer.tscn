@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dje1jlhr0xsjt"]
+
+[ext_resource type="Script" uid="uid://cw8kvowpvaxeb" path="res://Paciencia_perdida/Scripts/Testing/win_timer.gd" id="1_tvmor"]
+
+[node name="Win_Timer" type="CanvasLayer" node_paths=PackedStringArray("timer_bar")]
+script = ExtResource("1_tvmor")
+timer_bar = NodePath("Timer_Bar")
+
+[node name="Timer_Bar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -278.0
+offset_top = 19.0
+offset_right = 281.0
+offset_bottom = 59.0
+grow_horizontal = 2
+max_value = 120.0
+allow_lesser = true
+show_percentage = false

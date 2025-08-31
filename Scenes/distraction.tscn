@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bhh5x4f3fsi06"]
 
 [ext_resource type="Script" uid="uid://jfemvujvs2qy" path="res://Paciencia_perdida/Scripts/Testing/distraction.gd" id="1_qbi27"]
-[ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://Paciencia_perdida/icon.svg" id="2_w115s"]
+[ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://icon.svg" id="2_w115s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wani"]
 size = Vector2(118, 118)

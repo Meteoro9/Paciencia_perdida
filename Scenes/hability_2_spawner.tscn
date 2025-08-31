@@ -2,23 +2,7 @@
 
 [ext_resource type="Script" uid="uid://r05788ltb5qj" path="res://Paciencia_perdida/Scripts/Testing/hability_2_spawner.gd" id="1_oulol"]
 [ext_resource type="PackedScene" uid="uid://bg7ob5eu3qql7" path="res://Paciencia_perdida/Scenes/hability2_shoot.tscn" id="2_ic434"]
-[ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://Paciencia_perdida/icon.svg" id="3_wmt8v"]
-
-[sub_resource type="Animation" id="Animation_wmt8v"]
-resource_name = "shoot_used"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.499517),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.823287, 0.470364, 0.247864, 1), Color(0.207843, 0.686275, 0, 0)]
-}
+[ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://icon.svg" id="3_wmt8v"]
 
 [sub_resource type="Animation" id="Animation_jbqp0"]
 length = 0.001
@@ -49,6 +33,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.207843, 0.686275, 0, 0), Color(0.823529, 0.470588, 0.247059, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wmt8v"]
+resource_name = "shoot_used"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.499517),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.823287, 0.470364, 0.247864, 1), Color(0.207843, 0.686275, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eq7pu"]
