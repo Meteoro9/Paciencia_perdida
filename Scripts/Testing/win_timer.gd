@@ -14,13 +14,28 @@ func _ready() -> void:
 	win_timer = default_timer
 
 func _process(delta: float) -> void:
-	win_timer -= delta # restamos tiempo
-	print(win_timer)
+	# Comparamos tiempo para dar victoria o derrota
+	compare_timer_win_loose(delta)
+	
 	timer_bar.value = win_timer
 	
-	# Comparamos tiempo para dar victoria o derrota
+	
 
-func compare_timer_win_loose():
-	if win_timer <= 0:
+func compare_timer_win_loose(delta):
+	if win_timer > 0:
+		win_timer -= delta
+		print(win_timer)
+		
+		if player.health <= 0:
+			loose_level()
+			
+	else:
 		print("Se acabó el tiempo")
+		win_level()
+	
+
+func loose_level():
+	pass
+
+func win_level():
 	pass

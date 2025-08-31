@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oitw7scri5kj"
-path="res://.godot/imported/under_bar.png-2234c407e46820e963df0810e8de6764.ctex"
+uid="uid://dfgocnqp1xnyn"
+path="res://.godot/imported/Fondo_Portada.png-aef5402bbc979e94ad2101ec7866ca45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Testing_assets/under_bar.png"
-dest_files=["res://.godot/imported/under_bar.png-2234c407e46820e963df0810e8de6764.ctex"]
+source_file="res://Assets/Testing_assets/Fondo_Portada.png"
+dest_files=["res://.godot/imported/Fondo_Portada.png-aef5402bbc979e94ad2101ec7866ca45.ctex"]
 
 [params]
 

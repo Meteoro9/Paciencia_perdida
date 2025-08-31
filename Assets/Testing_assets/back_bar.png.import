@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjfkuihncuhld"
-path="res://.godot/imported/back_bar.png-207077ffc64392f1e0bd0ee561c5638c.ctex"
+path="res://.godot/imported/back_bar.png-440e4e7fb6c1aac210c61a91aa869e15.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Paciencia_perdida/Assets/Testing_assets/back_bar.png"
-dest_files=["res://.godot/imported/back_bar.png-207077ffc64392f1e0bd0ee561c5638c.ctex"]
+source_file="res://Assets/Testing_assets/back_bar.png"
+dest_files=["res://.godot/imported/back_bar.png-440e4e7fb6c1aac210c61a91aa869e15.ctex"]
 
 [params]
 
