@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Paciencia perdida (final)"
+run/main_scene="uid://xw5527qhnfbx"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://Paciencia_perdida/icon.svg"
 
