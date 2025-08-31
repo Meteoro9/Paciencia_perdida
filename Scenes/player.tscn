@@ -1,17 +1,111 @@
-[gd_scene load_steps=4 format=3 uid="uid://4m7kifvbmelu"]
+[gd_scene load_steps=17 format=3 uid="uid://4m7kifvbmelu"]
 
-[ext_resource type="Script" uid="uid://0ht1uhf7flqf" path="res://Paciencia_perdida/Scripts/Testing/player.gd" id="1_cvnsp"]
-[ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://Paciencia_perdida/icon.svg" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://0ht1uhf7flqf" path="res://Scripts/Testing/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://b2s4s2ylhceto" path="res://Assets/Testing_assets/Player_Animations/desesperado_1.png" id="2_7dp3o"]
+[ext_resource type="AudioStream" uid="uid://cjkxp777cb37g" path="res://Assets/Testing_assets/Audio/Hurt_sfx.mp3" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://blbkhbqt7qfdr" path="res://Assets/Testing_assets/Player_Animations/desesperado_2.png" id="3_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://co5yam5orjrh5" path="res://Assets/Testing_assets/Player_Animations/desesperado_3.png" id="4_fd4e3"]
+[ext_resource type="Texture2D" uid="uid://bhmnsgoxbyxc8" path="res://Assets/Testing_assets/Player_Animations/desesperado_4.png" id="5_qqcod"]
+[ext_resource type="Texture2D" uid="uid://c4qlxxpiy5k0" path="res://Assets/Testing_assets/Player_Animations/distraido_1.png" id="6_igrcy"]
+[ext_resource type="Texture2D" uid="uid://br3u8ny2s26wj" path="res://Assets/Testing_assets/Player_Animations/distraido_2.png" id="7_fs7ks"]
+[ext_resource type="Texture2D" uid="uid://b12aagbn43jqk" path="res://Assets/Testing_assets/Player_Animations/distraido_3.png" id="8_l6n3p"]
+[ext_resource type="Texture2D" uid="uid://b86gt2adxdsif" path="res://Assets/Testing_assets/Player_Animations/distraido_4.png" id="9_olqyp"]
+[ext_resource type="Texture2D" uid="uid://nsf6xli6txbu" path="res://Assets/Testing_assets/Player_Animations/idle_1.png" id="10_wpjfl"]
+[ext_resource type="Texture2D" uid="uid://bg5bgttq6bekc" path="res://Assets/Testing_assets/Player_Animations/idle_2.png" id="11_bi64h"]
+[ext_resource type="Texture2D" uid="uid://r4nwqfsa8y8w" path="res://Assets/Testing_assets/Player_Animations/idle_3.png" id="12_2ijsl"]
+[ext_resource type="Texture2D" uid="uid://c38wa1q78krfm" path="res://Assets/Testing_assets/Player_Animations/idle_4.png" id="13_p1odr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(127, 126)
 
-[node name="Player" type="Area2D" groups=["Player"]]
+[sub_resource type="SpriteFrames" id="SpriteFrames_0gysh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7dp3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h4iuc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fd4e3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qqcod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fd4e3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h4iuc")
+}],
+"loop": true,
+"name": &"desesperado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_igrcy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fs7ks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_l6n3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_olqyp")
+}, {
+"duration": 0.01,
+"texture": ExtResource("8_l6n3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fs7ks")
+}],
+"loop": true,
+"name": &"distraido",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_wpjfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bi64h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2ijsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_p1odr")
+}, {
+"duration": 0.5,
+"texture": ExtResource("12_2ijsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bi64h")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="Area2D" node_paths=PackedStringArray("audio_player", "animation") groups=["Player"]]
 script = ExtResource("1_cvnsp")
+audio_player = NodePath("AudioStreamPlayer2D")
+animation = NodePath("Animacion")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_cvnsp")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_v0iea")
+[node name="Animacion" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.52, 0.52)
+sprite_frames = SubResource("SpriteFrames_0gysh")
+animation = &"desesperado"
+frame_progress = 0.4447
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6t5aa")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

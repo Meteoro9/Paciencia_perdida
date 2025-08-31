@@ -8,7 +8,7 @@ var shoot_direction
 var player
 
 @export var animation_player: AnimationPlayer
-
+@export var audio: AudioStreamPlayer2D
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
@@ -22,6 +22,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_RIGHT \
 	and event.pressed:
+		audio.play()
+		
 		# posición global del mouse
 		var mouse_global := get_global_mouse_position()
 		var player_pos = player.global_position

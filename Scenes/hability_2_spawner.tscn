@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf5mjs0ilbpbw"]
+[gd_scene load_steps=9 format=3 uid="uid://cf5mjs0ilbpbw"]
 
-[ext_resource type="Script" uid="uid://r05788ltb5qj" path="res://Paciencia_perdida/Scripts/Testing/hability_2_spawner.gd" id="1_oulol"]
-[ext_resource type="PackedScene" uid="uid://bg7ob5eu3qql7" path="res://Paciencia_perdida/Scenes/hability2_shoot.tscn" id="2_ic434"]
-[ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://Paciencia_perdida/icon.svg" id="3_wmt8v"]
+[ext_resource type="Script" uid="uid://r05788ltb5qj" path="res://Scripts/Testing/hability_2_spawner.gd" id="1_oulol"]
+[ext_resource type="PackedScene" uid="uid://bg7ob5eu3qql7" path="res://Scenes/hability2_shoot.tscn" id="2_ic434"]
+[ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://icon.svg" id="3_wmt8v"]
+[ext_resource type="AudioStream" uid="uid://b74lx0wxky3tg" path="res://Assets/Testing_assets/Audio/Shoot_sfx.mp3" id="4_kmmuh"]
 
 [sub_resource type="Animation" id="Animation_jbqp0"]
 length = 0.001
@@ -58,11 +59,12 @@ _data = {
 &"shoot_used": SubResource("Animation_wmt8v")
 }
 
-[node name="Hability_2_spawner" type="Node2D" node_paths=PackedStringArray("timer", "animation_player") groups=["Hability2_Spawner"]]
+[node name="Hability_2_spawner" type="Node2D" node_paths=PackedStringArray("timer", "animation_player", "audio") groups=["Hability2_Spawner"]]
 script = ExtResource("1_oulol")
 timer = NodePath("Timer")
 shoot = ExtResource("2_ic434")
 animation_player = NodePath("CanvasLayer/TextureRect/AnimationPlayer")
+audio = NodePath("AudioStreamPlayer2D")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
@@ -90,5 +92,8 @@ root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_eq7pu")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_kmmuh")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

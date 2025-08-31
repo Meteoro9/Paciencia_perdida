@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1oo88e0cv656"]
+[gd_scene load_steps=14 format=3 uid="uid://b1oo88e0cv656"]
 
-[ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://Paciencia_perdida/icon.svg" id="1_jcbgk"]
-[ext_resource type="Script" uid="uid://cwk1446vfpvdv" path="res://Paciencia_perdida/Scripts/Testing/hability_3_spawner.gd" id="1_ltbty"]
-[ext_resource type="Script" uid="uid://cmkva15icdhik" path="res://Paciencia_perdida/Scripts/Testing/bomb_active.gd" id="3_tialt"]
+[ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://icon.svg" id="1_jcbgk"]
+[ext_resource type="Script" uid="uid://cwk1446vfpvdv" path="res://Scripts/Testing/hability_3_spawner.gd" id="1_ltbty"]
+[ext_resource type="Script" uid="uid://cmkva15icdhik" path="res://Scripts/Testing/bomb_active.gd" id="3_tialt"]
+[ext_resource type="AudioStream" uid="uid://bd3o18c02i1kl" path="res://Assets/Testing_assets/Audio/Expotion_sfx.mp3" id="4_pvab1"]
 
 [sub_resource type="Animation" id="Animation_jbqp0"]
 length = 0.001
@@ -185,17 +186,23 @@ libraries = {
 &"": SubResource("AnimationLibrary_eq7pu")
 }
 
-[node name="Bomb" type="Area2D" parent="." node_paths=PackedStringArray("bomb_input", "animation_player", "bomb_collision", "sprite")]
+[node name="Bomb" type="Area2D" parent="." node_paths=PackedStringArray("bomb_input", "animation_player", "bomb_collision", "sprite", "audio")]
 position = Vector2(-12.8571, 0)
 script = ExtResource("3_tialt")
 bomb_input = NodePath("..")
 animation_player = NodePath("Bomb_animation/AnimationPlayer")
 bomb_collision = NodePath("CollisionShape2D")
 sprite = NodePath("Bomb_animation")
+audio = NodePath("AudioStreamPlayer2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bomb"]
 shape = SubResource("CircleShape2D_ltbty")
 disabled = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Bomb"]
+position = Vector2(12.8571, 0)
+scale = Vector2(1, 1)
+stream = ExtResource("4_pvab1")
 
 [node name="Bomb_animation" type="Sprite2D" parent="Bomb"]
 modulate = Color(0.866667, 0.486275, 0.247059, 1)
