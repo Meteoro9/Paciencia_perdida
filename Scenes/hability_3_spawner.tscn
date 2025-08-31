@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://b1oo88e0cv656"]
 
-[ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://Paciencia_perdida/icon.svg" id="1_jcbgk"]
-[ext_resource type="Script" uid="uid://cwk1446vfpvdv" path="res://Paciencia_perdida/Scripts/Testing/hability_3_spawner.gd" id="1_ltbty"]
-[ext_resource type="Script" uid="uid://cmkva15icdhik" path="res://Paciencia_perdida/Scripts/Testing/bomb_active.gd" id="3_tialt"]
+[ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://icon.svg" id="1_jcbgk"]
+[ext_resource type="Script" uid="uid://cwk1446vfpvdv" path="res://Scripts/Testing/hability_3_spawner.gd" id="1_ltbty"]
+[ext_resource type="Script" uid="uid://cmkva15icdhik" path="res://Scripts/Testing/bomb_active.gd" id="3_tialt"]
 
 [sub_resource type="Animation" id="Animation_jbqp0"]
 length = 0.001

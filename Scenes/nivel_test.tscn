@@ -17,12 +17,12 @@ radius = 11.1763
 position = Vector2(563, 342)
 
 [node name="Health_bar" parent="." instance=ExtResource("2_7k53l")]
-player_node = NodePath("../Player")
 
 [node name="Win_Timer" parent="." instance=ExtResource("3_6glv2")]
 player_node = NodePath("../Player")
 
 [node name="Distraction_spawner" parent="." instance=ExtResource("3_md62p")]
+script = null
 
 [node name="Hability_2_spawner" parent="." instance=ExtResource("4_0xl08")]
 
