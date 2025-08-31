@@ -1,7 +1,14 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=3 format=3 uid="uid://xw5527qhnfbx"]
 
 [ext_resource type="Script" uid="uid://iou3kwhl83i4" path="res://Scripts/menu.gd" id="1_shxc0"]
 [ext_resource type="PackedScene" uid="uid://g6neely15nn5" path="res://Scenes/Levels_&_Screens/BG.tscn" id="2_o43a1"]
+=======
+[gd_scene load_steps=3 format=3 uid="uid://d0gd1brcb8xqw"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_shxc0"]
+[ext_resource type="PackedScene" uid="uid://b8ifnrmkvk88h" path="res://Scenes/Levels_&_Screens/BG.tscn" id="2_o43a1"]
+>>>>>>> Stashed changes
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_shxc0")
