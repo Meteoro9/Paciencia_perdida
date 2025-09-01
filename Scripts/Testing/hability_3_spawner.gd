@@ -8,7 +8,7 @@ var player
 
 @export var animation_player: AnimationPlayer
 @export var bomb_animation: AnimationPlayer
-
+@export var GUI_animation: AnimationPlayer
 
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
@@ -20,6 +20,8 @@ func _ready():
 func _process(_delta) -> void:
 	# Si la bomba está cargada y se presionó input
 	if is_bomb_able:
+		GUI_animation.play("disponible")
+		
 		if Input.is_action_just_pressed("bomb_action"):
 			# Hacemos visible la bomba
 			bomb_animation.get_parent().visible = true

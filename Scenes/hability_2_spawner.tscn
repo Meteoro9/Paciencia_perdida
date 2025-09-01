@@ -1,9 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://cf5mjs0ilbpbw"]
+[gd_scene load_steps=14 format=3 uid="uid://cf5mjs0ilbpbw"]
 
 [ext_resource type="Script" uid="uid://r05788ltb5qj" path="res://Scripts/Testing/hability_2_spawner.gd" id="1_oulol"]
 [ext_resource type="PackedScene" uid="uid://bg7ob5eu3qql7" path="res://Scenes/hability2_shoot.tscn" id="2_ic434"]
 [ext_resource type="Texture2D" uid="uid://2tp0726m3cyp" path="res://Assets/Testing_assets/bullet.png" id="3_kmmuh"]
+[ext_resource type="Texture2D" uid="uid://bllg08qac1eq4" path="res://Assets/Testing_assets/GUI/Mouse_White.png" id="4_6osfl"]
 [ext_resource type="AudioStream" uid="uid://b1fesnx8pbdoi" path="res://Assets/Testing_assets/Audio/Disparo.ogg" id="4_kmmuh"]
+[ext_resource type="Texture2D" uid="uid://b4glpmw1g376c" path="res://Assets/Testing_assets/GUI/Move_White.png" id="5_f2bmy"]
+[ext_resource type="Texture2D" uid="uid://mf4si83dtfr2" path="res://Assets/Testing_assets/GUI/MoveDiagonal_White.png" id="6_1ag1c"]
+[ext_resource type="Texture2D" uid="uid://bp7t13ro0idfs" path="res://Assets/Testing_assets/GUI/RightClick_White.png" id="7_fuag8"]
 
 [sub_resource type="Animation" id="Animation_jbqp0"]
 length = 0.001
@@ -59,12 +63,33 @@ _data = {
 &"shoot_used": SubResource("Animation_wmt8v")
 }
 
-[node name="Hability_2_spawner" type="Node2D" node_paths=PackedStringArray("timer", "animation_player", "audio") groups=["Hability2_Spawner"]]
+[sub_resource type="SpriteFrames" id="SpriteFrames_1fahs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6osfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f2bmy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1ag1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fuag8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Hability_2_spawner" type="Node2D" node_paths=PackedStringArray("timer", "animation_player", "audio", "GUI_animation") groups=["Hability2_Spawner"]]
 script = ExtResource("1_oulol")
 timer = NodePath("Timer")
 shoot = ExtResource("2_ic434")
 animation_player = NodePath("CanvasLayer/TextureRect/AnimationPlayer")
 audio = NodePath("AudioStreamPlayer2D")
+GUI_animation = NodePath("CanvasLayer/TextureRect/AnimatedSprite2D")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
@@ -75,14 +100,14 @@ autostart = true
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = -1
-anchor_left = 0.0208333
-anchor_top = 1.03704
+anchor_left = -0.0494792
+anchor_top = 0.912037
 anchor_right = -0.0494792
 anchor_bottom = 0.912037
-offset_left = 82.0
-offset_top = -80.0001
-offset_right = 313.0
-offset_bottom = 151.0
+offset_left = 343.0
+offset_top = -130.0
+offset_right = 574.0
+offset_bottom = 101.0
 grow_vertical = 0
 scale = Vector2(0.36, 0.36)
 texture = ExtResource("3_kmmuh")
@@ -94,7 +119,15 @@ libraries = {
 &"": SubResource("AnimationLibrary_eq7pu")
 }
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/TextureRect"]
+modulate = Color(0.282353, 0.760784, 0.847059, 1)
+position = Vector2(113.889, 352.778)
+scale = Vector2(1.93866, 1.93866)
+sprite_frames = SubResource("SpriteFrames_1fahs")
+frame_progress = 0.361023
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(574, 302)
 stream = ExtResource("4_kmmuh")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

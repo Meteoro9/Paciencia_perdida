@@ -10,6 +10,8 @@ var player
 @export var animation_player: AnimationPlayer
 @export var audio: AudioStreamPlayer2D
 
+@export var GUI_animation: AnimatedSprite2D
+
 func _ready():
 	player = get_tree().get_first_node_in_group("Player")
 	is_shoot_able = true
@@ -44,6 +46,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		print("Se disparó un bullet")
 
 
+func _process(_delta):
+	if not GUI_animation.is_playing():
+		GUI_animation.play("default")
 
 # Si terminó el cooldown, permite disparar
 func _on_timer_timeout() -> void:

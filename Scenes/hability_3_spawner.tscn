@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://b1oo88e0cv656"]
+[gd_scene load_steps=19 format=4 uid="uid://b1oo88e0cv656"]
 
 [ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://icon.svg" id="1_jcbgk"]
 [ext_resource type="Script" uid="uid://cwk1446vfpvdv" path="res://Scripts/Testing/hability_3_spawner.gd" id="1_ltbty"]
 [ext_resource type="Texture2D" uid="uid://b014x0yf5dk5e" path="res://Assets/Testing_assets/GUI/bomb_character_o_idle.png" id="2_llj4x"]
+[ext_resource type="Texture2D" uid="uid://dd8u08l73oiyu" path="res://Assets/Testing_assets/GUI/space_md_white.png" id="3_llj4x"]
 [ext_resource type="Script" uid="uid://cmkva15icdhik" path="res://Scripts/Testing/bomb_active.gd" id="3_tialt"]
 
 [sub_resource type="Animation" id="Animation_jbqp0"]
@@ -33,7 +34,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.207843, 0.686275, 0, 0), Color(0.823529, 0.470588, 0.247059, 1)]
+"values": [Color(0.207843, 0.686275, 0, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_wmt8v"]
@@ -46,10 +47,10 @@ tracks/0/path = NodePath("TextureRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.499517),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.0666667, 0.499517),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0.823287, 0.470364, 0.247864, 1), Color(0.207843, 0.686275, 0, 0)]
+"values": [Color(1, 1, 1, 1), Color(0.736051, 0.138565, 0.16523, 0.890196), Color(0.207843, 0.686275, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eq7pu"]
@@ -57,6 +58,67 @@ _data = {
 &"RESET": SubResource("Animation_jbqp0"),
 &"shoot_recharged": SubResource("Animation_eq7pu"),
 &"shoot_used": SubResource("Animation_wmt8v")
+}
+
+[sub_resource type="Animation" id="Animation_3ujmx"]
+resource_name = "disponible"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2.18651, 2.18651), Vector2(1.64087, 1.64087), Vector2(2.187, 2.187)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(108.704, 383.222), Vector2(113.987, 381.833), Vector2(108.704, 383.222)]
+}
+
+[sub_resource type="Animation" id="Animation_1gxxq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.18651, 2.18651)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(108.704, 383.222)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ekxaa"]
+_data = {
+&"RESET": SubResource("Animation_1gxxq"),
+&"disponible": SubResource("Animation_3ujmx")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ltbty"]
@@ -156,13 +218,14 @@ _data = {
 &"idle_bomb": SubResource("Animation_ib5cd")
 }
 
-[node name="Hability_3_Spawner" type="Node2D" node_paths=PackedStringArray("timer", "animation_player", "bomb_animation")]
+[node name="Hability_3_Spawner" type="Node2D" node_paths=PackedStringArray("timer", "animation_player", "bomb_animation", "GUI_animation")]
 position = Vector2(610, 327)
 scale = Vector2(2.25886, 2.25886)
 script = ExtResource("1_ltbty")
 timer = NodePath("Timer")
 animation_player = NodePath("CanvasLayer/TextureRect/AnimationPlayer")
 bomb_animation = NodePath("Bomb/Bomb_animation/AnimationPlayer")
+GUI_animation = NodePath("CanvasLayer/TextureRect/Sprite2D/AnimationPlayer")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
@@ -173,10 +236,10 @@ wait_time = 5.0
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 227.0
-offset_top = -125.0
-offset_right = 458.0
-offset_bottom = 175.0
+offset_left = 177.0
+offset_top = -181.0
+offset_right = 408.0
+offset_bottom = 119.0
 grow_vertical = 0
 scale = Vector2(0.36, 0.36)
 texture = ExtResource("2_llj4x")
@@ -185,6 +248,17 @@ texture = ExtResource("2_llj4x")
 root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_eq7pu")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/TextureRect"]
+position = Vector2(108.704, 383.222)
+scale = Vector2(2.18651, 2.18651)
+texture = ExtResource("3_llj4x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/TextureRect/Sprite2D"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_ekxaa")
 }
 
 [node name="Bomb" type="Area2D" parent="." node_paths=PackedStringArray("bomb_input", "bomb_animation", "bomb_collision", "sprite", "audio")]

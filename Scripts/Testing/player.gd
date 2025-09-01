@@ -11,6 +11,9 @@ signal health_changed
 func _init():
 	health = initial_health
 
+func _ready() -> void:
+	animation.play("idle")
+
 func take_damage(damage:float):
 	if damage > health:
 		health = 0
@@ -37,8 +40,10 @@ func animation_selector():
 		new_animation = "desesperado"
 	
 	# Solo reproduce la animación si no es la que ya se está reproduciendo
-	if animation.animation != new_animation:
-		animation.play(new_animation)
+	if not animation.is_playing():
+		if animation.animation != new_animation:
+			animation.play(new_animation)
+
 
 
 func _on_area_entered(body) -> void:
