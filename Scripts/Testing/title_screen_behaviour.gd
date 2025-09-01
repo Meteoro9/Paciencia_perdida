@@ -5,9 +5,6 @@ class_name Title_Scene_Behaviour
 @export var level2 : PackedScene
 @export var level3 : PackedScene
 @export var level4 : PackedScene
-@export var level5 : PackedScene
-@export var level6 : PackedScene
-@export var level7 : PackedScene
 
 func on_level1_button_pressed():
 	#get_tree().change_scene_to_file("res://Scenes/Levls_&_Screens/Pantalla de título.tscn")

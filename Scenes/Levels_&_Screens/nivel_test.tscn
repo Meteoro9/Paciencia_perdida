@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://ceqjb1d5h81qk"]
 
-[ext_resource type="PackedScene" uid="uid://4m7kifvbmelu" path="res://Scenes/player.tscn" id="1_0xl08"]
-[ext_resource type="PackedScene" uid="uid://begt0go5v2j0y" path="res://Scenes/health_bar.tscn" id="2_7k53l"]
-[ext_resource type="PackedScene" uid="uid://dje1jlhr0xsjt" path="res://Scenes/win_timer.tscn" id="3_6glv2"]
+[ext_resource type="PackedScene" uid="uid://4m7kifvbmelu" path="res://Scenes/Elements/player.tscn" id="1_0xl08"]
+[ext_resource type="PackedScene" uid="uid://begt0go5v2j0y" path="res://Scenes/Elements/health_bar.tscn" id="2_7k53l"]
+[ext_resource type="PackedScene" uid="uid://dje1jlhr0xsjt" path="res://Scenes/Elements/win_timer.tscn" id="3_6glv2"]
 [ext_resource type="Texture2D" uid="uid://b7kgll60osaf6" path="res://Assets/Testing_assets/BackGround.png" id="3_eonep"]
-[ext_resource type="PackedScene" uid="uid://d2tk10cm6vts2" path="res://Scenes/distraction_spawner.tscn" id="3_md62p"]
-[ext_resource type="PackedScene" uid="uid://cf5mjs0ilbpbw" path="res://Scenes/hability_2_spawner.tscn" id="4_0xl08"]
-[ext_resource type="PackedScene" uid="uid://b1oo88e0cv656" path="res://Scenes/hability_3_spawner.tscn" id="5_7k53l"]
-[ext_resource type="PackedScene" uid="uid://df8wtoa1efr2" path="res://Scenes/level_elimination_area.tscn" id="7_6glv2"]
+[ext_resource type="PackedScene" uid="uid://d2tk10cm6vts2" path="res://Scenes/Elements/distraction_spawner.tscn" id="3_md62p"]
+[ext_resource type="PackedScene" uid="uid://cf5mjs0ilbpbw" path="res://Scenes/Elements/hability_2_spawner.tscn" id="4_0xl08"]
+[ext_resource type="PackedScene" uid="uid://b1oo88e0cv656" path="res://Scenes/Elements/hability_3_spawner.tscn" id="5_7k53l"]
+[ext_resource type="PackedScene" uid="uid://df8wtoa1efr2" path="res://Scenes/Elements/level_elimination_area.tscn" id="7_6glv2"]
 
 [node name="Nivel_test" type="Node2D"]
 

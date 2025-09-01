@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://cf5mjs0ilbpbw"]
 
 [ext_resource type="Script" uid="uid://r05788ltb5qj" path="res://Scripts/Testing/hability_2_spawner.gd" id="1_oulol"]
-[ext_resource type="PackedScene" uid="uid://bg7ob5eu3qql7" path="res://Scenes/hability2_shoot.tscn" id="2_ic434"]
+[ext_resource type="PackedScene" uid="uid://bg7ob5eu3qql7" path="res://Scenes/Elements/hability2_shoot.tscn" id="2_ic434"]
 [ext_resource type="Texture2D" uid="uid://2tp0726m3cyp" path="res://Assets/Testing_assets/bullet.png" id="3_kmmuh"]
 [ext_resource type="Texture2D" uid="uid://bllg08qac1eq4" path="res://Assets/Testing_assets/GUI/Mouse_White.png" id="4_6osfl"]
 [ext_resource type="AudioStream" uid="uid://b1fesnx8pbdoi" path="res://Assets/Testing_assets/Audio/Disparo.ogg" id="4_kmmuh"]
