@@ -21,6 +21,7 @@ position = Vector2(583, 308)
 texture = ExtResource("3_eonep")
 
 [node name="Health_bar" parent="." instance=ExtResource("2_7k53l")]
+player_node = NodePath("../Player")
 
 [node name="Win_Timer" parent="." instance=ExtResource("3_6glv2")]
 player_node = NodePath("../Player")
@@ -29,6 +30,5 @@ player_node = NodePath("../Player")
 position = Vector2(576, 373)
 
 [node name="Distraction_spawner" parent="." instance=ExtResource("3_md62p")]
-script = null
 
 [node name="Level_Area" parent="." instance=ExtResource("7_6glv2")]

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://r05788ltb5qj" path="res://Scripts/Testing/hability_2_spawner.gd" id="1_oulol"]
 [ext_resource type="PackedScene" uid="uid://bg7ob5eu3qql7" path="res://Scenes/hability2_shoot.tscn" id="2_ic434"]
 [ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://icon.svg" id="3_wmt8v"]
-[ext_resource type="AudioStream" uid="uid://b74lx0wxky3tg" path="res://Assets/Testing_assets/Audio/Shoot_sfx.mp3" id="4_kmmuh"]
+[ext_resource type="AudioStream" uid="uid://b1fesnx8pbdoi" path="res://Assets/Testing_assets/Audio/Disparo.ogg" id="4_kmmuh"]
 
 [sub_resource type="Animation" id="Animation_jbqp0"]
 length = 0.001

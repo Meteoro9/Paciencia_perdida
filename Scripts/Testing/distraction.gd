@@ -3,6 +3,8 @@ class_name Distraction_Behaviour
 
 var speed := 130
 var player
+@export var audio: AudioStreamPlayer2D
+
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
@@ -25,6 +27,9 @@ func _input_event(viewport, event, shape_idx):
 			# Comienza arrastre
 			dragging = true
 			drag_offset = global_position - event.position
+			
+			# Reproducimos audio
+			audio.play()
 		
 
 func _process(delta):

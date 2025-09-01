@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://df8wtoa1efr2"]
 
 [ext_resource type="Script" uid="uid://bp0c72ytcbd6x" path="res://Scripts/Testing/level_area.gd" id="1_j5bu8"]
-[ext_resource type="AudioStream" uid="uid://dgmcdksxor20k" path="res://Assets/Testing_assets/Audio/Ataque1_sfx.mp3" id="2_skoeb"]
+[ext_resource type="AudioStream" uid="uid://ctka0ypkwn2sw" path="res://Assets/Testing_assets/Audio/Woosh_Distraction_exit.ogg" id="2_skoeb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8xifg"]
 radius = 11.1763
