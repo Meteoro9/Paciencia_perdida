@@ -1,11 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2tk10cm6vts2"]
-
-[ext_resource type="Script" uid="uid://cchql3og6afwq" path="res://Paciencia_perdida/Scripts/Testing/distraction_spawner.gd" id="1_kfu0t"]
-[ext_resource type="PackedScene" uid="uid://bhh5x4f3fsi06" path="res://Paciencia_perdida/Scenes/distraction.tscn" id="2_xpnjf"]
+[gd_scene format=3 uid="uid://d2tk10cm6vts2"]
 
 [node name="Distraction_spawner" type="Node2D"]
-script = ExtResource("1_kfu0t")
-distracion1 = ExtResource("2_xpnjf")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
