@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddb5kfntcabi1"]
+[gd_scene load_steps=5 format=3 uid="uid://ckrniqfssj1vp"]
 
-[ext_resource type="Script" uid="uid://2avgf2ou2cld" path="res://Scripts/pantalla_victoria.gd" id="1_udh5u"]
-[ext_resource type="Texture2D" uid="uid://dmf86o38txh65" path="res://Assets/Testing_assets/Victory_Screen.png" id="1_ur7pp"]
+[ext_resource type="Script" uid="uid://2avgf2ou2cld" path="res://Scripts/pantalla_victoria.gd" id="1_u84q6"]
+[ext_resource type="Texture2D" uid="uid://dmf86o38txh65" path="res://Assets/Testing_assets/Victory_Screen.png" id="2_lkd20"]
 
 [sub_resource type="Theme" id="Theme_ur7pp"]
 default_font_size = 69
@@ -10,7 +10,7 @@ default_font_size = 69
 default_font_size = 34
 
 [node name="Pantalla_victoria" type="CanvasLayer"]
-script = ExtResource("1_udh5u")
+script = ExtResource("1_u84q6")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8
@@ -24,7 +24,7 @@ offset_right = 768.0
 offset_bottom = 512.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ur7pp")
+texture = ExtResource("2_lkd20")
 expand_mode = 2
 stretch_mode = 3
 

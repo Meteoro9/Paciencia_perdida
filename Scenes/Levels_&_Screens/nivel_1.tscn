@@ -9,8 +9,10 @@
 [ext_resource type="AudioStream" uid="uid://bbnvg0m7w0c" path="res://Assets/Testing_assets/Audio/Nivel 1 Theme.ogg" id="8_myuef"]
 [ext_resource type="PackedScene" uid="uid://df8wtoa1efr2" path="res://Scenes/Elements/level_elimination_area.tscn" id="8_q7mqa"]
 
-[node name="Nivel_1" type="Node2D"]
+[node name="Nivel_1" type="Node2D" node_paths=PackedStringArray("health_bar", "win_timer")]
 script = ExtResource("1_2oheu")
+health_bar = NodePath("Health_bar")
+win_timer = NodePath("Win_Timer")
 
 [node name="BackGround" type="Sprite2D" parent="."]
 z_index = -3

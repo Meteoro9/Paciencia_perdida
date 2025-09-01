@@ -9,6 +9,7 @@ var win_timer: float
 @export var player_node: NodePath
 @onready var player = get_node(player_node)
 
+var current_time: float
 
 func _ready() -> void:
 	win_timer = default_timer
@@ -19,7 +20,7 @@ func _process(delta: float) -> void:
 	
 	timer_bar.value = win_timer
 	
-	
+	current_time = timer_bar.value
 
 func compare_timer_win_loose(delta):
 	if win_timer > 0:
