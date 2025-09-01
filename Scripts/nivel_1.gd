@@ -6,8 +6,9 @@ class_name Nivel1
 
 func compare_conditions():
 	if health_bar.current_value <= 0:
-		#get_tree().change_scene_to_file("res://Scenes/Levels_&_Screens/nivel_1.tscn")
-		pass
+		# Sin vida -> Pantalla de derrota
+		get_tree().change_scene_to_file("res://Scenes/Levels_&_Screens/pantalla_derrota.tscn")
+		
 	elif win_timer.current_time <= 0:
+		# Si se acaba el tiempo -> Gana:
 		get_tree().change_scene_to_file("res://Scenes/Levels_&_Screens/pantalla_victoria.tscn")
-		pass

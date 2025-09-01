@@ -9,3 +9,5 @@ func _process(_delta):
 	#$TextureProgressBar.value = player.health
 	$ProgressBar.value = player.health
 	current_value = $ProgressBar.value
+	if current_value <= 0:
+		get_tree().change_scene_to_file("res://Scenes/Levels_&_Screens/pantalla_derrota.tscn")

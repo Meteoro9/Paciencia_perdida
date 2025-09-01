@@ -21,6 +21,9 @@ func _process(delta: float) -> void:
 	timer_bar.value = win_timer
 	
 	current_time = timer_bar.value
+	if current_time <= 0:
+		get_tree().change_scene_to_file("res://Scenes/Levels_&_Screens/pantalla_victoria.tscn")
+	
 
 func compare_timer_win_loose(delta):
 	if win_timer > 0:

@@ -25,7 +25,7 @@ func take_damage(damage:float):
 		print("El jugador recibió " + str(damage) + " daño y ahora tiene " + str(health))
 	emit_signal("health_changed") # el segundo parámetro es el objeto señalado
 	
-	animation_selector()
+	#animation_selector()
 
 func _process(_delta: float) -> void:
 	animation_selector()

@@ -115,6 +115,7 @@ animations = [{
 }]
 
 [node name="Player" type="Area2D" node_paths=PackedStringArray("audio_player", "animation", "GUI_animation") groups=["Player"]]
+scale = Vector2(0.76, 0.76)
 script = ExtResource("1_cvnsp")
 audio_player = NodePath("AudioStreamPlayer2D")
 animation = NodePath("Animacion")
