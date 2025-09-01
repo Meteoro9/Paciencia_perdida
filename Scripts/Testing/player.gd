@@ -20,21 +20,23 @@ func take_damage(damage:float):
 		print("El jugador recibió " + str(damage) + " daño y ahora tiene " + str(health))
 	emit_signal("health_changed") # el segundo parámetro es el objeto señalado
 
+func _process(_delta: float) -> void:
+	animation_selector()
+
 
 func animation_selector():
-	if health > 70.0: 
-		# Esperamos a que la animación actual termine
-		# Y luego reproducimos la siguiente
-		await animation.animation_finished
-		animation.play("idle")
-		
+	var new_animation: String
+	
+	if health > 70.0:
+		new_animation = "idle"
 	elif health > 15.0 and health <= 70.0:
-		await  animation.animation_finished
-		animation.play("distraido")
-		
+		new_animation = "distraido"
 	else:
-		await animation.animation_finished
-		animation.play("desesperado")
+		new_animation = "desesperado"
+	
+	# Solo reproduce la animación si no es la que ya se está reproduciendo
+	if animation.animation != new_animation:
+		animation.play(new_animation)
 
 
 func _on_area_entered(body) -> void:

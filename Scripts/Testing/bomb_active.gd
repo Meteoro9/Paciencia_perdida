@@ -13,7 +13,6 @@ func _process(_delta: float) -> void:
 		sprite.visible = true
 		animation_player.play("explote")
 		bomb_input.is_bomb_exploding = false
-		await animation_player.current_animation
 	
 
 

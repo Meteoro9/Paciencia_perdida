@@ -201,7 +201,6 @@ disabled = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Bomb"]
 position = Vector2(12.8571, 0)
-scale = Vector2(1, 1)
 stream = ExtResource("4_pvab1")
 
 [node name="Bomb_animation" type="Sprite2D" parent="Bomb"]
