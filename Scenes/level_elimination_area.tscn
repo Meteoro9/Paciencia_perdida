@@ -1,14 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://df8wtoa1efr2"]
+[gd_scene load_steps=9 format=3 uid="uid://df8wtoa1efr2"]
 
 [ext_resource type="Script" uid="uid://bp0c72ytcbd6x" path="res://Scripts/Testing/level_area.gd" id="1_j5bu8"]
 [ext_resource type="AudioStream" uid="uid://ctka0ypkwn2sw" path="res://Assets/Testing_assets/Audio/Woosh_Distraction_exit.ogg" id="2_skoeb"]
+[ext_resource type="Texture2D" uid="uid://cg4j3q4e2cjkw" path="res://Assets/Testing_assets/bomb_character_o_explode.png" id="3_ismco"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8xifg"]
 radius = 11.1763
 
-[node name="Level_Area" type="Area2D" node_paths=PackedStringArray("audio_exit")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxwi8"]
+atlas = ExtResource("3_ismco")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leo53"]
+atlas = ExtResource("3_ismco")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xho1k"]
+atlas = ExtResource("3_ismco")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vgkdj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxwi8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leo53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xho1k")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Level_Area" type="Area2D" node_paths=PackedStringArray("audio_exit", "animation")]
 script = ExtResource("1_j5bu8")
 audio_exit = NodePath("AudioStreamPlayer2D")
+animation = NodePath("AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(561, 329)
@@ -17,5 +48,13 @@ shape = SubResource("CircleShape2D_8xifg")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_skoeb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.372549)
+position = Vector2(559, 258)
+scale = Vector2(15.1406, 15.1406)
+sprite_frames = SubResource("SpriteFrames_vgkdj")
+frame = 2
+frame_progress = 1.0
 
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

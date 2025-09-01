@@ -1,21 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://bg7ob5eu3qql7"]
 
 [ext_resource type="Script" uid="uid://iw8w3ntecbm2" path="res://Scripts/Testing/hability_2_shoot_behaviour.gd" id="1_58kjn"]
-[ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://icon.svg" id="1_inyov"]
+[ext_resource type="Texture2D" uid="uid://2tp0726m3cyp" path="res://Assets/Testing_assets/bullet.png" id="2_ahift"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_inyov"]
-size = Vector2(34, 36)
+size = Vector2(46, 29)
 
 [node name="Hability2_shoot" type="Area2D"]
 script = ExtResource("1_58kjn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_inyov")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.258082, 0.258082, 0.258082, 1)
-scale = Vector2(0.289063, 0.289063)
-texture = ExtResource("1_inyov")
+position = Vector2(-1.19209e-07, -1.19209e-07)
+rotation = 1.5708
+scale = Vector2(2.875, 2.875)
+texture = ExtResource("2_ahift")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0

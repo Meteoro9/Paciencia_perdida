@@ -27,7 +27,7 @@ func _process(_delta) -> void:
 			is_bomb_exploding = true
 			is_bomb_able = false # para que no sea infinita
 			# Al terminar la animación, inicia cooldown
-			#await bomb_animation.current_animation
+			
 			timer.start()
 			animation_player.play("shoot_used")
 		

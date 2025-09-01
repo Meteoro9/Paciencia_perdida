@@ -9,6 +9,7 @@
 script = ExtResource("1_wjrfg")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+visible = false
 texture_filter = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -22,3 +23,14 @@ scale = Vector2(7.48, 7.48)
 texture_under = ExtResource("1_qay8w")
 texture_over = ExtResource("2_wjrfg")
 texture_progress = ExtResource("3_ap322")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -242.0
+offset_top = 110.0
+offset_right = 244.0
+offset_bottom = 151.0
+grow_horizontal = 2
+show_percentage = false

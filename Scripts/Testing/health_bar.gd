@@ -5,4 +5,5 @@ extends CanvasLayer
 @onready var player = get_node(player_node)
 
 func _process(_delta):
-	$TextureProgressBar.value = player.health
+	#$TextureProgressBar.value = player.health
+	$ProgressBar.value = player.health

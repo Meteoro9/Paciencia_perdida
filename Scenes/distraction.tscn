@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bhh5x4f3fsi06"]
 
 [ext_resource type="Script" uid="uid://jfemvujvs2qy" path="res://Scripts/Testing/distraction.gd" id="1_qbi27"]
-[ext_resource type="Texture2D" uid="uid://hjgl105hgnd4" path="res://icon.svg" id="2_w115s"]
+[ext_resource type="Texture2D" uid="uid://bq3fxlti4ih6v" path="res://Assets/Testing_assets/mosquito.png" id="2_0u5eg"]
 [ext_resource type="AudioStream" uid="uid://ei7sikd4wdx1" path="res://Assets/Testing_assets/Audio/Grab_Distraction.ogg" id="3_0u5eg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wani"]
@@ -14,7 +14,7 @@ audio = NodePath("AudioStreamPlayer2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0.223896, 0.170975, 1)
-texture = ExtResource("2_w115s")
+texture = ExtResource("2_0u5eg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2wani")

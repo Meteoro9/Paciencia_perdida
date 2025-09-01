@@ -11,14 +11,15 @@
 
 [node name="Nivel_test" type="Node2D"]
 
-[node name="Hability_3_Spawner" parent="." instance=ExtResource("5_7k53l")]
-
 [node name="Hability_2_spawner" parent="." instance=ExtResource("4_0xl08")]
 
 [node name="BackGround" type="Sprite2D" parent="."]
 z_index = -3
 position = Vector2(583, 308)
 texture = ExtResource("3_eonep")
+
+[node name="Hability_3_Spawner" parent="." instance=ExtResource("5_7k53l")]
+z_index = 1
 
 [node name="Health_bar" parent="." instance=ExtResource("2_7k53l")]
 player_node = NodePath("../Player")
