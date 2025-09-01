@@ -1,25 +1,21 @@
 [gd_scene load_steps=9 format=3 uid="uid://xtw08qu53dxw"]
 
-[ext_resource type="PackedScene" uid="uid://cf5mjs0ilbpbw" path="res://Scenes/Elements/hability_2_spawner.tscn" id="1_myuef"]
+[ext_resource type="Script" uid="uid://bocds8kfisw7a" path="res://Scripts/nivel_1.gd" id="1_2oheu"]
 [ext_resource type="Texture2D" uid="uid://b7kgll60osaf6" path="res://Assets/Testing_assets/BackGround.png" id="2_dihqk"]
-[ext_resource type="PackedScene" uid="uid://b1oo88e0cv656" path="res://Scenes/Elements/hability_3_spawner.tscn" id="3_1cl8s"]
 [ext_resource type="PackedScene" uid="uid://begt0go5v2j0y" path="res://Scenes/Elements/health_bar.tscn" id="4_hq7ny"]
 [ext_resource type="PackedScene" uid="uid://dje1jlhr0xsjt" path="res://Scenes/Elements/win_timer.tscn" id="5_qj6sj"]
 [ext_resource type="PackedScene" uid="uid://4m7kifvbmelu" path="res://Scenes/Elements/player.tscn" id="6_h5c6b"]
 [ext_resource type="PackedScene" uid="uid://d2tk10cm6vts2" path="res://Scenes/Elements/distraction_spawner.tscn" id="7_5f83m"]
+[ext_resource type="AudioStream" uid="uid://bbnvg0m7w0c" path="res://Assets/Testing_assets/Audio/Nivel 1 Theme.ogg" id="8_myuef"]
 [ext_resource type="PackedScene" uid="uid://df8wtoa1efr2" path="res://Scenes/Elements/level_elimination_area.tscn" id="8_q7mqa"]
 
-[node name="Nivel_test" type="Node2D"]
-
-[node name="Hability_2_spawner" parent="." instance=ExtResource("1_myuef")]
+[node name="Nivel_1" type="Node2D"]
+script = ExtResource("1_2oheu")
 
 [node name="BackGround" type="Sprite2D" parent="."]
 z_index = -3
 position = Vector2(583, 308)
 texture = ExtResource("2_dihqk")
-
-[node name="Hability_3_Spawner" parent="." instance=ExtResource("3_1cl8s")]
-z_index = 1
 
 [node name="Health_bar" parent="." instance=ExtResource("4_hq7ny")]
 player_node = NodePath("../Player")
@@ -33,3 +29,7 @@ position = Vector2(576, 373)
 [node name="Distraction_spawner" parent="." instance=ExtResource("7_5f83m")]
 
 [node name="Level_Area" parent="." instance=ExtResource("8_q7mqa")]
+
+[node name="Music_player" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_myuef")
+autoplay = true

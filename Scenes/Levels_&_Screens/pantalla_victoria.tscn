@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddb5kfntcabi1"]
+
+[ext_resource type="Texture2D" uid="uid://dmf86o38txh65" path="res://Assets/Testing_assets/Victory_Screen.png" id="1_ur7pp"]
+
+[sub_resource type="Theme" id="Theme_ur7pp"]
+default_font_size = 69
+
+[node name="Pantalla_victoria" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -768.0
+offset_top = -512.0
+offset_right = 768.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ur7pp")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 0.996128, 0.995459, 1)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -427.0
+offset_top = 116.0
+offset_right = 427.0
+offset_bottom = 239.0
+grow_horizontal = 2
+theme = SubResource("Theme_ur7pp")
+text = "No perdiste la paciencia!!!"

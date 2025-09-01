@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://j50rwjys6a26"]
+[gd_scene load_steps=9 format=3 uid="uid://j50rwjys6a26"]
 
 [ext_resource type="Texture2D" uid="uid://dfgocnqp1xnyn" path="res://Assets/Testing_assets/Fondo_Portada.png" id="1_2g6wc"]
 [ext_resource type="Script" uid="uid://djhbk7wknv5up" path="res://Scripts/Testing/title_screen_behaviour.gd" id="1_mvbqy"]
+[ext_resource type="AudioStream" uid="uid://bbvuxi6ttchey" path="res://Assets/Testing_assets/Audio/Main Menu Loop.ogg" id="3_lq132"]
 
 [sub_resource type="Theme" id="Theme_lq132"]
 default_font_size = 69
@@ -17,10 +18,10 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 3, 4, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.98863, 2, 3, 4, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.380392, 1, 1, 1), Color(1, 1, 0.243137, 1), Color(1, 0.313726, 0.298039, 1), Color(1, 1, 1, 1)]
+"values": [Color(0.826509, 3.73013e-06, 6.73831e-07, 1), Color(0.992106, 0.856208, 0.841726, 1), Color(0.380392, 1, 1, 1), Color(1, 1, 0.243137, 1), Color(1, 0.313726, 0.298039, 1), Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -120,10 +121,10 @@ stretch_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -289.5
-offset_top = 65.0
-offset_right = 469.5
-offset_bottom = 188.0
+offset_left = -290.068
+offset_top = 65.047
+offset_right = 468.932
+offset_bottom = 188.047
 grow_horizontal = 2
 theme = SubResource("Theme_lq132")
 text = "Paciencia Perdida"
@@ -177,6 +178,11 @@ offset_right = 215.0
 offset_bottom = 66.0
 theme = SubResource("Theme_e838f")
 text = "Jugar Nivel 1"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lq132")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="Level1_Button" to="." method="on_level1_button_pressed"]
 [connection signal="pressed" from="Level1_Button2" to="." method="on_level1_button_pressed"]

@@ -7,12 +7,14 @@ const initial_health:float = 100
 signal health_changed
 @export var audio_player: AudioStreamPlayer2D
 @export var animation: AnimatedSprite2D
+@export var GUI_animation: AnimatedSprite2D
 
 func _init():
 	health = initial_health
 
 func _ready() -> void:
 	animation.play("idle")
+	GUI_animation.play("default")
 
 func take_damage(damage:float):
 	if damage > health:

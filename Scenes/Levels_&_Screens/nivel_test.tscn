@@ -31,5 +31,6 @@ player_node = NodePath("../Player")
 position = Vector2(576, 373)
 
 [node name="Distraction_spawner" parent="." instance=ExtResource("3_md62p")]
+time_to_timer = 2.0
 
 [node name="Level_Area" parent="." instance=ExtResource("7_6glv2")]

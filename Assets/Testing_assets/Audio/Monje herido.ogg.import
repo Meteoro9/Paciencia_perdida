@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ckmtqny07nmva"
+path="res://.godot/imported/Monje herido.ogg-15087f691c42f3285c725ac081e04fac.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Testing_assets/Audio/Monje herido.ogg"
+dest_files=["res://.godot/imported/Monje herido.ogg-15087f691c42f3285c725ac081e04fac.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://0ht1uhf7flqf" path="res://Scripts/Testing/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://b2s4s2ylhceto" path="res://Assets/Testing_assets/Player_Animations/desesperado_1.png" id="2_7dp3o"]
-[ext_resource type="AudioStream" uid="uid://cjkxp777cb37g" path="res://Assets/Testing_assets/Audio/Hurt_sfx.mp3" id="3_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://blbkhbqt7qfdr" path="res://Assets/Testing_assets/Player_Animations/desesperado_2.png" id="3_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://co5yam5orjrh5" path="res://Assets/Testing_assets/Player_Animations/desesperado_3.png" id="4_fd4e3"]
 [ext_resource type="Texture2D" uid="uid://bhmnsgoxbyxc8" path="res://Assets/Testing_assets/Player_Animations/desesperado_4.png" id="5_qqcod"]
@@ -14,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bg5bgttq6bekc" path="res://Assets/Testing_assets/Player_Animations/idle_2.png" id="11_bi64h"]
 [ext_resource type="Texture2D" uid="uid://r4nwqfsa8y8w" path="res://Assets/Testing_assets/Player_Animations/idle_3.png" id="12_2ijsl"]
 [ext_resource type="Texture2D" uid="uid://c38wa1q78krfm" path="res://Assets/Testing_assets/Player_Animations/idle_4.png" id="13_p1odr"]
+[ext_resource type="AudioStream" uid="uid://ckmtqny07nmva" path="res://Assets/Testing_assets/Audio/Monje herido.ogg" id="14_awn1x"]
 [ext_resource type="Texture2D" uid="uid://bllg08qac1eq4" path="res://Assets/Testing_assets/GUI/Mouse_White.png" id="15_igrcy"]
 [ext_resource type="Texture2D" uid="uid://de4hwn1gj0o6u" path="res://Assets/Testing_assets/GUI/LeftClick_White.png" id="16_fs7ks"]
 [ext_resource type="Texture2D" uid="uid://b4glpmw1g376c" path="res://Assets/Testing_assets/GUI/Move_White.png" id="17_l6n3p"]
@@ -114,10 +114,11 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="Player" type="Area2D" node_paths=PackedStringArray("audio_player", "animation") groups=["Player"]]
+[node name="Player" type="Area2D" node_paths=PackedStringArray("audio_player", "animation", "GUI_animation") groups=["Player"]]
 script = ExtResource("1_cvnsp")
 audio_player = NodePath("AudioStreamPlayer2D")
 animation = NodePath("Animacion")
+GUI_animation = NodePath("CanvasLayer/Ataque1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
@@ -130,7 +131,7 @@ sprite_frames = SubResource("SpriteFrames_0gysh")
 animation = &"idle"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_6t5aa")
+stream = ExtResource("14_awn1x")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

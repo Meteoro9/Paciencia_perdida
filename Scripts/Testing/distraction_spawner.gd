@@ -4,14 +4,16 @@ class_name Distraction_Spawner
 @export var distracion1: PackedScene
 @onready var timer: Timer = $Timer
 var player
-
+@export var time_to_timer: float
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
-	timer.start()
+	timer.one_shot = true
+	timer.start(time_to_timer)
 
 func _on_timer_timeout() -> void:
 	spawn_distraction()
+	timer.start(time_to_timer)
 
 
 func spawn_distraction():
